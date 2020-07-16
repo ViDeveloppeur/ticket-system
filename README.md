@@ -10,3 +10,6 @@ Here are the packages to install. You can click directly on the package to know 
 - [dateformat](https://www.npmjs.com/package/dateformat)
 - [quick.db](https://www.npmjs.com/package/quick.db)
 - [fs](https://www.npmjs.com/package/fs)
+
+So, here is the command to enter in your console. *(if quick.db has already been installed previously on your machine)*
+`npm install discord.js dateformat quick.db fs`
