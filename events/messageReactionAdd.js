@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const functions = require("../functions/functions.js");
-const gutil = require("gulp-util");
 const dateFormat = require('dateformat');
 const db = require('quick.db');
 const fs = require('fs');

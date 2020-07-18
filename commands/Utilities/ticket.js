@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const fs = require("fs");
 const color = JSON.parse(fs.readFileSync(`Storage/color.json`, `utf8`));
 
 exports.run = async (bot, message, args, functions) => {
