@@ -43,9 +43,9 @@ exports.run = async (bot, message, args, functions) => {
         .setAuthor(`📥 | Ticket Fermé`)
         .setColor(color.blue)
         .setDescription(`\`${message.author.tag}\` a forcé la fermeture de votre ticket.`);
-        db.delete(`ticket.${message.channel.name}`);
         if(logsChannel) await logsChannel.send(forceEmbed);
         if(bot.users.cache.get(db.get(`ticket.${message.channel.name}.user`))) bot.users.cache.get(db.get(`ticket.${message.channel.name}.user`)).send(embed1).catch(e => {console.log(e)})
+        db.delete(`ticket.${message.channel.name}`);
         message.channel.delete();
         
     
