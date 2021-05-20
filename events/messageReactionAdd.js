@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const functions = require("../functions/functions.js");
 const dateFormat = require('dateformat');
 const db = require('quick.db');
-const fs = require('fs');
 
 module.exports = async (bot, reaction, user) => {
   if(reaction.message.partial) await reaction.message.fetch();
