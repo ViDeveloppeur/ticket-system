@@ -3,7 +3,6 @@ const functions = require("../functions/functions.js");
 const dateFormat = require('dateformat');
 const db = require('quick.db');
 const fs = require('fs');
-const color = JSON.parse(fs.readFileSync(`Storage/color.json`, `utf8`));
 
 module.exports = async (bot, reaction, user) => {
   if(reaction.message.partial) await reaction.message.fetch();
@@ -16,12 +15,12 @@ module.exports = async (bot, reaction, user) => {
   let logsChannel = message.guild.channels.cache.find(c => c.id === db.get(`logs_${message.guild.id}`));
 
   let already = new Discord.MessageEmbed()
-  .setColor(color.red)
+  .setColor(bot.color.red)
   .setAuthor(`⛔ | Éh non ..`)
   .setDescription(`Vous pouvez avoir qu'un seul ticket d'ouvert à la fois.`);
 
   let success = new Discord.MessageEmbed()
-  .setColor(color.green)
+  .setColor(bot.color.green)
   .setTitle(`🎟️ | Système de Ticket`)
   .setDescription(`Veuillez expliquer la raison de votre demande. Un membre de l'équipe prendra en charge votre ticket sous peu.`);
 
@@ -67,7 +66,7 @@ module.exports = async (bot, reaction, user) => {
         let createdEmbed = new Discord.MessageEmbed()
         .setAuthor(`📝 | Ticket Ouvert`)
         .setTimestamp()
-        .setColor(color.none)
+        .setColor(bot.color.none)
         .setFooter(`Système de Ticket`, bot.user.displayAvatarURL())
         .setDescription(`Un utilisateur à ouvert un ticket et attend qu'on s'occupe de sa demande.`)
         .addField(`Informations`, `**Utilisateur :** \`${user.tag}\`\n**ID :** \`${user.id}\`\n**Ticket :** ${channel}\n**Date :** \`${dateFormat(new Date(), "dd/mm/yyyy - HH:MM:ss")}\``);
@@ -95,7 +94,7 @@ module.exports = async (bot, reaction, user) => {
 
         let deletedEmbed = new Discord.MessageEmbed()
         .setAuthor(`🗑️ | Ticket Fermé`)
-        .setColor(color.none)
+        .setColor(bot.color.none)
         .setDescription(`L'auteur a confirmé la fermeture du ticket.`)
         .setTimestamp()
         .setFooter(`Système de Ticket`, bot.user.displayAvatarURL())
