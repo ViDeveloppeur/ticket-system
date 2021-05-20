@@ -1,13 +1,14 @@
 {
-  "red":"#E53939",
-  "orange":"#F9A72D",
-  "blue":"#4c8bf5",
-  "green":"#64DF5B",
-  "cyan":"#5BD7E5",
-  "pink":"#E367D3",
-  "yellow":"#E9E95A",
-  "purple":"#B05AE9",
-  "white":"#ebebeb",
-  "black":"#171717",
-  "none":"#36393f"
+  "red": "#ED4245",
+  "orange": "#F9A72D",
+  "blurple": "#5865F2",
+  "green": "#57F287",
+  "cyan": "#5BD7E5",
+  "pink": "#E367D3",
+  "yellow": "#FEE75C",
+  "purple": "#B05AE9",
+  "white": "#ebebeb",
+  "black": "#171717",
+  "none": "#36393f",
+  "Fuchsia": "#EB459E"
 }
