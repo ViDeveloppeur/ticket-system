@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const db = require("quick.db");
 const dateFormat = require("dateformat");
-const color = JSON.parse(fs.readFileSync(`Storage/color.json`, `utf8`));
 
 exports.run = async (bot, message, args, functions) => {
 
@@ -14,7 +13,7 @@ exports.run = async (bot, message, args, functions) => {
     
       let userEmbed = new Discord.MessageEmbed()
       .setAuthor(`🗑️ | Ticket Fermé`)
-      .setColor(color.none)
+      .setColor(bot.color.none)
       .setDescription(`L'auteur du ticket à procédé à la fermeture de celui-ci.`)
       .setTimestamp()
       .setFooter(`Ticket System`, bot.user.displayAvatarURL())
@@ -33,7 +32,7 @@ exports.run = async (bot, message, args, functions) => {
     
         let forceEmbed = new Discord.MessageEmbed()
         .setAuthor(`🗑️ | Ticket Fermé`)
-        .setColor(color.none)
+        .setColor(bot.color.none)
         .setDescription(`Un membre ayant le rôle ${support} a supprimé un ticket de force.`)
         .setTimestamp()
         .setFooter(`Ticket System`, bot.user.displayAvatarURL())
@@ -41,7 +40,7 @@ exports.run = async (bot, message, args, functions) => {
     
         let embed1 = new Discord.MessageEmbed()
         .setAuthor(`📥 | Ticket Fermé`)
-        .setColor(color.blue)
+        .setColor(bot.color.blue)
         .setDescription(`\`${message.author.tag}\` a forcé la fermeture de votre ticket.`);
         db.delete(`ticket.${message.channel.name}`);
         if(logsChannel) await logsChannel.send(forceEmbed);
@@ -53,7 +52,7 @@ exports.run = async (bot, message, args, functions) => {
     
         let staffEmbed = new Discord.MessageEmbed()
       .setAuthor(`🗑️| Demande de Fermeture`)
-      .setColor(color.none)
+      .setColor(bot.color.none)
       .setDescription(`Un membre ayant le rôle ${support} a demandé la fermeture du ticket.`)
       .setTimestamp()
       .setFooter(`Ticket System`, bot.user.displayAvatarURL())
@@ -61,7 +60,7 @@ exports.run = async (bot, message, args, functions) => {
     
         if(!message.guild.member(message.author).roles.cache.has(support.id)) return functions.errorEmbed(message, message.channel, "Désolé, vous n'avez pas le rôle `Ticket Support`.");
         let embed2 = new Discord.MessageEmbed()
-        .setColor(color.green)
+        .setColor(bot.color.green)
         .setTitle(`🎟️ | Ticket Terminé`)
         .setDescription(`Réagissez avec \\🗑️ pour fermer le ticket ou ne réagissez pas si vous avez d'autres demandes.`);
         if(logsChannel) await logsChannel.send(staffEmbed);
