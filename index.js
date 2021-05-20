@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const config = require("./Storage/config.json");
+const config = require("./config.json");
 
 const bot = new Discord.Client({
   disableEveryone: true,
@@ -19,6 +19,8 @@ const load = async () => {
   await loadCommands.run(bot);
   await loadEvents.run(bot);
 };
+
+bot.color = require("./Storage/color.json");
 
 load();
 bot.login(config.token);
