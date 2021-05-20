@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const fs = require("fs");
-const color = JSON.parse(fs.readFileSync(`Storage/color.json`, `utf8`));
 
 module.exports = {
 
@@ -32,11 +31,11 @@ module.exports = {
   // =================================== EMBED SUCCESS & ERROR =================================== //
 
   errorEmbed: function(message, channel, argument) {
-    channel.send(new Discord.MessageEmbed().setDescription(`\\📛 **Erreur:** ${argument} \\📛`).setColor(color.red))
+    channel.send(new Discord.MessageEmbed().setDescription(`\\📛 **Erreur:** ${argument} \\📛`).setColor(bot.color.red))
   },
 
   successEmbed: function(message, channel, argument) {
-    channel.send(new Discord.MessageEmbed().setDescription(`\\✅ **Succès:** ${argument}`).setColor(color.green))
+    channel.send(new Discord.MessageEmbed().setDescription(`\\✅ **Succès:** ${argument}`).setColor(bot.color.green))
   },
 
 }
